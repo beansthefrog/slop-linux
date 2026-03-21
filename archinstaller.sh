@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # =============================================================================
 # Arch Linux Automated Installation Script
-# Target: KDE Plasma | SDDM | ext4 | UEFI
+# Target: KDE Plasma | plasma-login-manager | ext4 | UEFI
 # Partitions: /boot (EFI) | / (root, 50GB) | /home (remainder)
 #
 # USAGE:
@@ -245,7 +245,7 @@ echo "root:${ROOT_PASSWORD}" | chpasswd
 pacman -S --noconfirm \
     plasma-meta \
     kde-applications-meta \
-    sddm \
+    plasma-login-manager \
     xorg \
     pipewire \
     pipewire-alsa \
@@ -256,7 +256,7 @@ pacman -S --noconfirm \
 
 # --- Enable essential services ---
 systemctl enable NetworkManager    # Networking
-systemctl enable sddm              # Display manager (login screen)
+systemctl enable plasmalogin.service  # Display manager (login screen)
 systemctl enable cups              # Printing service
 
 # --- Install and configure GRUB bootloader ---
