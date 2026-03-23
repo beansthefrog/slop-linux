@@ -2,7 +2,7 @@
 # =============================================================================
 # Arch Linux Automated Installation Script
 # Target: KDE Plasma | plasma-login-manager | ext4 | UEFI
-# Partitions: /boot (EFI) | / (root, 50GB) | /home (remainder)
+# Partitions: /boot (EFI) | / (root, 30GB) | /home (remainder)
 #
 # USAGE:
 #   1. Boot from the Arch Linux live ISO.
@@ -23,7 +23,7 @@ trap 'echo "[ERROR] Script failed at line $LINENO." >&2' ERR
 
 DISK="/dev/sda"           # Target disk (e.g. /dev/sda, /dev/nvme0n1)
 BOOT_SIZE="512MiB"        # EFI partition size
-ROOT_SIZE="50GiB"         # Root partition size (remainder goes to /home)
+ROOT_SIZE="30GiB"         # Root partition size (remainder goes to /home)
 
 HOSTNAME="archlinux"      # System hostname
 LOCALE="en_US.UTF-8"      # System locale
